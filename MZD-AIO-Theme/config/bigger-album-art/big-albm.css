@@ -1,0 +1,82 @@
+/* CSS For Bigger Album Art */
+.SbnCtrl {
+  background: none !important;
+}
+.StatusBarCtrl {
+	background: rgba(40,40,40,0.5) !important;
+	border-bottom: 1px solid #0006a7 !important;
+}
+.NowPlaying4CtrlTitle,
+.NowPlaying4CtrlTitleFull {
+  top: 15px;
+  left: 14px;
+  width: 460px !important;
+  max-width: 620px !important;
+  padding: 3px 8px 4px 15px !important;
+  border: 1px solid #0006a7 !important;
+  border-bottom: 2px #404040 !important;
+  border-radius: 3px 15px 0px 0px !important;
+  background:rgba(40,40,40,0.5) !important;
+  z-index: 100 !important;
+}
+.NowPlaying4CtrlArtworkImageDiv {
+  position: absolute !important;
+  top: 0px !important;
+  left: 0px !important;
+  width: 800px !important;
+  height: 480px !important;
+  background: none !important;
+/*  overflow: hidden; */
+}
+.NowPlaying4CtrlArtworkImage {
+  width: 800px !important;
+  max-width: 800px !important;
+  height: 800px !important;
+  max-height: 800px !important;
+  filter: blur(5px);
+  opacity: 0.3;
+}
+.NowPlaying4CtrlArtworkImageBorder {
+  display: none !important;
+}
+.NowPlaying4CtrlInfoBox,
+.NowPlaying4CtrlInfoBoxFull {
+  top: 72px;
+  left: 14px;
+  width: 620px !important;
+  max-width: 620px !important;
+  padding: 14px 8px 10px 15px !important;
+  border: 1px solid #0006a7 !important;
+  border-radius: 0px 20px 3px 20px !important;
+  background: url('/jci/gui/common/images/radio_icon.png'), rgba(40,40,40,0.5) !important;
+  display: inline-block !important;
+  white-space: nowrap !important;
+}
+.NowPlaying4CtrlAudioTitle,
+.NowPlaying4CtrlAudioTitleStyle3,
+.NowPlaying4CtrlDetailLine1,
+.NowPlaying4CtrlDetailLine2,
+.NowPlaying4CtrlDetailLine3 {
+  white-space: nowrap !important;
+  font-size: 28px !important;
+  width: 590px !important;
+}
+.NowPlaying4CtrlAudioTitleBlock,
+.NowPlaying4CtrlDetailLine1Block {
+  width: 590px !important;
+}
+.NowPlaying4CtrlAudioTitleBlockFrame,
+.NowPlaying4CtrlDetailLine1BlockFrame,
+.NowPlaying4CtrlAudioTitleStyle3Full,
+.NowPlaying4CtrlAudioTitleFull,
+.NowPlaying4CtrlDetailLine1Full,
+.NowPlaying4CtrlDetailLine2Full,
+.NowPlaying4CtrlDetailLine3Full {
+  width: 590px;
+}
+.NowPlaying4CtrlUnformattedText {
+  padding-left: 15px !important;
+  font-size: 28px !important;
+  white-space: normal !important;
+  width: 590px !important;
+}

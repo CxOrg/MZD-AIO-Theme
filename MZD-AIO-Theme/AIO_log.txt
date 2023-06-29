@@ -1,0 +1,32 @@
+=========================================================================
+=======================   START LOGGING TWEAKS...  ======================
+======================= AIO v.2.8.6  -  2020.04.04 ======================
+================ MAZ_CMU-150_59.00.449A  Flavor cmu150_EU ===============
+======================= CMU_SW_VER = 59.00.449A-EU ======================
+=======================  COMPATIBILITY_GROUP  = 4 =======================
+
+=======================   MYDIR = /tmp/mnt/sdb1    ======================
+==================      DATE = 06/29/23 08:54:46        =================
+===         Copytest to sd card successful, mount point is OK         ===
+ 
+=======        Detected compatible version 59.00.449A-EU          =======
+ 
+======***********    BEGIN PRE-INSTALL OPERATIONS ...    **********======
+================== Remounted /tmp/mnt/resources =========================
+================== Backup of sm.conf.org already there! =================
+=====================  Watchdog Already Disabled! =======================
+================== Backup of opera.ini already there! ===================
+============== Userjs & File Xmlhttprequest Already Enabled =============
+======================= data_persist 5% used ===========================
+======================== rootfs 80% used ================================
+====================== resources 74% used ===============================
+=========************ END PRE-INSTALL OPERATIONS ***************=========
+ 
+========*********      INSTALL BIGGER ALBUM ART ...      *********=======
+===               Removed CSS From NowPlaying4Ctrl.css                ===
+===              CSS Added for Bigger Album Art Tweak                 ===
+========*******   END INSTALLATION OF BIGGER ALBUM ART   ********========
+ 
+======================== rootfs 80% used ================================
+====================== resources 74% used ===============================
+======================= END OF TWEAKS INSTALLATION ======================
