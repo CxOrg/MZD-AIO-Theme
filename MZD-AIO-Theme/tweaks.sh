@@ -846,11 +846,12 @@ log_message " "
 
 backup_org /jci/gui/common/controls/StatusBar/css/StatusBarCtrl.css
 backup_org /jci/gui/common/controls/Sbn/css/SbnCtrl.css
-Statusbar Color Tweaks
-Trevelopment By: Trezdog44
-The Idea is to add to the end of the CSS file surrounded by a comment
-the uninstall would then just find the commented section and remove it
-No files are replaced and CSS files are safe to modify without fear of system damage
+
+# Statusbar Color Tweaks
+# Trevelopment By: Trezdog44
+# The Idea is to add to the end of the CSS file surrounded by a comment
+# the uninstall would then just find the commented section and remove it
+# No files are replaced and CSS files are safe to modify without fear of system damage
 show_message "INSTALL STATUSBAR COLOR TWEAKS ..."
 log_message "============****** INSTALL STATUSBAR COLOR TWEAKS ...  ********=========="
 
