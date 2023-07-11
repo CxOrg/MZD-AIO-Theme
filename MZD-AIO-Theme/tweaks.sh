@@ -1431,10 +1431,10 @@ log_message " "
 
 #-----------------------------------------------------------------------------------------------
 
-remove_blankAlbumArtFrame()
+replace_albumFrame_controlBg()
 {
 # remove blank album art frame
-show_message "REMOVE BLANK ALBUM ART FRAME ..."
+show_message "REPLACE ALBUM ART FRAME & CONTROLS BG..."
 log_message "=======******** INSTALL REMOVE BLANK ALBUM ART FRAME ... ********========"
 
 cp -a "${MYDIR}/config/blank-album-art-frame/jci/gui/common/controls/InCall2/images/NowPlayingImageFrame.png" /jci/gui/common/controls/InCall2/images
@@ -1444,7 +1444,7 @@ cp -a "${MYDIR}/config/blank-album-art-frame/jci/gui/common/images/radio_icon.pn
 cp -a "${MYDIR}/config/blank-album-art-frame/jci/gui/common/images/controls_bg.png" /jci/gui/common/images
 log_message "===                     Replaced Blank Album Art                      ==="
 
-log_message "======*******  END INSTALLATION OF REMOVE BLANK ALBUM ART  *******======="
+log_message "======*******  END REPLACE ALBUM ART FRAME & CONTROLS BG  *******======="
 log_message " "
 }
 
@@ -1493,9 +1493,9 @@ log_message "====********* END INSTALLATION OFF SCREEN BACKGROUND IMAGE ********
 log_message " "
 }
 
-#------------------------- Install functions - comment/uncomment to ignore/activate -----------------------------------------
+#------------------------- Install functions - uncomment to activate -----------------------------------------
 
-uninstall_backgroundRotator
+# uninstall_backgroundRotator
 
 install_custTheme
 
@@ -1515,7 +1515,7 @@ install_removeBackgrounds
 
 install_biggerArt
 
-remove_blankAlbumArtFrame
+replace_albumFrame_controlBg
 
 install_changeBackgrpounds
 
