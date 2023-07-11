@@ -1,22 +1,53 @@
 /* CSS For Bigger Album Art */
 .SbnCtrl {
-  background: none !important;
+	background: none !important;
 }
 .StatusBarCtrl {
-	background: rgba(40,40,40,0.5) !important;
+	background: rgba(40,40,45,0.5) !important;
 	border-bottom: 1px solid #0006a7 !important;
+}
+.UmpScrubberStyle01,
+.UmpScrubberStyle02,
+.UmpScrubberStyle03,
+.UmpScrubberStyle06,
+.Ump3CtrlBufferStyle01,
+.Ump3CtrlBufferStyle02,
+.Ump3CtrlBufferStyle03,
+.Ump3CtrlBufferStyle04,
+.Ump3CtrlBufferStyle05
+{
+  top: 22px !important;
+}
+.Ump3CtrlElapsedTime
+{
+  top: 15px !important;
+  left: 25px  !important;
+}
+.Ump3CtrlTotalTime
+{
+  top: 15px !important;
+  left: 685px  !important;
+}
+.Ump3CtrlBackground {
+  position: inherit !important;
+  top: 59px !important;
+  left: 0 !important;
+  width: 800px !important;
+  height: 89px !important;
+  border-top: 0px solid #606060 !important;
+  background: url('/jci/gui/common/images/controls_bg.png') !important;
 }
 .NowPlaying4CtrlTitle,
 .NowPlaying4CtrlTitleFull {
-  top: 15px;
-  left: 14px;
+  top: 15px !important;
+  left: 14px !important;
   width: 460px !important;
   max-width: 620px !important;
   padding: 3px 8px 4px 15px !important;
   border: 1px solid #0006a7 !important;
   border-bottom: 2px #404040 !important;
-  border-radius: 6px 15px 0px 0px !important;
-  background:rgba(40,40,40,0.5) !important;
+  border-radius: 10px 15px 0px 0px !important;
+  background:rgba(40,40,45,0.5) !important;
   z-index: 100 !important;
 }
 .NowPlaying4CtrlArtworkImageDiv {
@@ -33,22 +64,23 @@
   max-width: 800px !important;
   height: 800px !important;
   max-height: 800px !important;
-  filter: blur(5px);
-  opacity: 0.4;
+  filter: blur(5px) !important;
+  opacity: 0.6 !important;
 }
 .NowPlaying4CtrlArtworkImageBorder {
   display: none !important;
 }
 .NowPlaying4CtrlInfoBox,
 .NowPlaying4CtrlInfoBoxFull {
-  top: 72px;
-  left: 14px;
+  top: 72px !important;
+  left: 14px !important;
   width: 620px !important;
   max-width: 620px !important;
+  max-height: 180px !important;
   padding: 14px 8px 10px 15px !important;
   border: 1px solid #0006a7 !important;
-  border-radius: 0px 20px 6px 20px !important;
-  background: url('/jci/gui/common/images/radio_icon.png'), rgba(40,40,40,0.5) !important;
+  border-radius: 0px 30px 10px 30px !important;
+  background: url('/jci/gui/common/images/radio_icon.png'), rgba(40,40,45,0.5) !important;
   display: inline-block !important;
   white-space: nowrap !important;
 }
@@ -72,7 +104,7 @@
 .NowPlaying4CtrlDetailLine1Full,
 .NowPlaying4CtrlDetailLine2Full,
 .NowPlaying4CtrlDetailLine3Full {
-  width: 590px;
+  width: 590px !important;
 }
 .NowPlaying4CtrlUnformattedText {
   padding-left: 15px !important;

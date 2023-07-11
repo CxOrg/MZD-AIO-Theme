@@ -812,28 +812,37 @@ fi
 log_message "=========************ END PRE-INSTALL OPERATIONS ***************========="
 log_message " "
 
-restore background image and common.css to original
-log_message "======***********    UNINSTALL BACKGROUND ROTATOR ...    **********======"
+#--------------------------------------------------------------------------------------------
 
-# one line uninstall
-sed -i "/.. MZD-AIO-TI CSS ../,/.. END AIO CSS ../d" /jci/gui/common/css/common.css
-log_message "===            Removed MZD-AIO-TI Custom CSS in common.css            ==="
+uninstall_backgroundRotator()
+{
+  restore background image and common.css to original
+  log_message "======***********    UNINSTALL BACKGROUND ROTATOR ...    **********======"
 
-# Check for leftover code from old bg rotator, if not found moves on.
-if grep -Fq "animation: slide .* infinite" /jci/gui/common/css/common.css
-then
-	log_message "===             Leftover code found Restoring common.css              ==="
-	if ! (restore_org /jci/gui/common/css/common.css)
-	then
-		cp -a "${MYDIR}/config_org/BackgroundRotator/jci/gui/common/css/common.css" /jci/gui/common/css
-		log_message "===    No backup available. Restored common.css from USB Fallback     ==="
-	fi
-fi
+  # one line uninstall
+  sed -i "/.. MZD-AIO-TI CSS ../,/.. END AIO CSS ../d" /jci/gui/common/css/common.css
+  log_message "===            Removed MZD-AIO-TI Custom CSS in common.css            ==="
 
-log_message "=====*********** END UNINSTALLATION OF BACKGROUND ROTATOR **********====="
-log_message " "
-Background Tweak should be run after this to restore background Image
+  # Check for leftover code from old bg rotator, if not found moves on.
+  if grep -Fq "animation: slide .* infinite" /jci/gui/common/css/common.css
+  then
+      log_message "===             Leftover code found Restoring common.css              ==="
+      if ! (restore_org /jci/gui/common/css/common.css)
+      then
+          cp -a "${MYDIR}/config_org/BackgroundRotator/jci/gui/common/css/common.css" /jci/gui/common/css
+          log_message "===    No backup available. Restored common.css from USB Fallback     ==="
+      fi
+  fi
 
+  log_message "=====*********** END UNINSTALLATION OF BACKGROUND ROTATOR **********====="
+  log_message " "
+  Background Tweak should be run after this to restore background Image
+}
+
+#--------------------------------------------------------------------------------------------
+
+install_custTheme()
+{
 show_message "INSTALL CUSTOM INFOTAINMENT THEME ..."
 log_message "===******** INSTALL CUSTOM INFOTAINMENT THEME (${COLORTHEME}) ... ********==="
 
@@ -843,10 +852,14 @@ log_message "===                     ${COLORTHEME} Theme Applied                
 
 log_message "=======********** END INSTALLATION OF ${COLORTHEME} THEME ***********========"
 log_message " "
+}
 
+#---------------------------------------------------------------------------------------------
+
+install_statusTweaks()
+{
 backup_org /jci/gui/common/controls/StatusBar/css/StatusBarCtrl.css
 backup_org /jci/gui/common/controls/Sbn/css/SbnCtrl.css
-
 # Statusbar Color Tweaks
 # Trevelopment By: Trezdog44
 # The Idea is to add to the end of the CSS file surrounded by a comment
@@ -864,7 +877,7 @@ remove_aio_css /jci/gui/common/controls/Sbn/css/SbnCtrl.css
 /* Main Statusbar Text Color */
 .StatusBarCtrl {
 	${STATUS_BAR_CTRL}
-	background-color: rgba(40, 40, 40, ${STATUS_BAR_OPACITY}) !important;
+	background-color: rgba(40, 40, 45, ${STATUS_BAR_OPACITY}) !important;
 	border-bottom: 1px solid #0006a7 !important;
 }
 /* App Name */
@@ -912,7 +925,12 @@ EOT
 
 log_message "===                  CSS Added for Statusbar tweaks                   ==="
 log_message " "
+}
 
+#--------------------------------------------------------------------------------------------
+
+install_menuTweaks()
+{
 backup_org /jci/gui/apps/system/controls/MainMenu/css/MainMenuCtrl.css
 
 # MAIN MENU Tweaks
@@ -1060,7 +1078,12 @@ fi
 
 log_message "=====**********   END INSTALLATION OF MAIN MENU TWEAKS    **********====="
 log_message " "
+}
 
+#--------------------------------------------------------------------------------------------
+
+install_reverseTweaks()
+{
 # remove safety warning from reverse camera for 12 different countries
 show_message "REMOVE SAFETY WARNING FROM REVERSE CAMERA ..."
 log_message "===******* INSTALL REMOVE SAFETY WARNING FROM REVERSE CAMERA ... *****==="
@@ -1086,7 +1109,12 @@ log_message "===            Copied /jci/nativegui/images/MiniView/*.png         
 
 log_message "===*** END INSTALLATION OF SEMITRANSPARENT PARKING SENSOR GRAPHICS ***==="
 log_message " "
+}
 
+#--------------------------------------------------------------------------------------------
+
+install_menuLoop()
+{
 backup_org /jci/gui/apps/system/controls/MainMenu/js/MainMenuCtrl.js
 
 # main menu loop
@@ -1138,8 +1166,12 @@ fi
 
 log_message "=======************ END INSTALLATION OF LIST_LOOP_MOD ************======="
 log_message " "
+}
 
+#--------------------------------------------------------------------------------------------
 
+install_noMoreDisclaimer()
+{
 backup_org /jci/gui/apps/system/js/systemApp.js
 
 # no-more-disclaimer
@@ -1212,7 +1244,12 @@ fi
 
 log_message "=====*********** END INSTALLATION OF NO-MORE-DISCLAIMER ***********======"
 log_message " "
+}
 
+#--------------------------------------------------------------------------------------------
+
+install_sourceList()
+{
 backup_org /jci/gui/apps/system/js/systemApp.js
 
 # change order of the audio source list
@@ -1280,7 +1317,12 @@ then
 fi
 log_message "====****** END INSTALLATION OF ORDER OF THE AUDIO SOURCE LIST ******====="
 log_message " "
+}
 
+#--------------------------------------------------------------------------------------------
+
+install_removeBackgrounds()
+{
 # Remove CSS that is already been added
 sed -i "/.. MZD-AIO-TI NO-BTN-BG ../,/.. END AIO CSS ../d" /jci/gui/common/controls/Ump3/css/Ump3Ctrl.css
 # Append css
@@ -1291,7 +1333,6 @@ then
 		cat <<EOT >> /jci/gui/common/controls/Ump3/css/Ump3Ctrl.css
 	/* Remove Button Backgrounds */
 	.Ump3CtrlBgArch,
-	.Ump3CtrlBackground,
 	.Ump3CtrlSeparator {
 		background:none!important;
 	}
@@ -1344,7 +1385,12 @@ echo "/* END AIO CSS */" >> /jci/gui/common/controls/Ump3/css/Ump3Ctrl.css
 
 log_message "========***** END INSTALLATION OF REMOVE BACKGROUND OVERLAYS *****======="
 log_message " "
+}
 
+#--------------------------------------------------------------------------------------------
+
+install_biggerArt()
+{
 backup_org /jci/gui/common/controls/NowPlaying4/css/NowPlaying4Ctrl.css
 
 # bigger album art
@@ -1381,7 +1427,12 @@ log_message "===              CSS Added for Bigger Album Art Tweak              
 
 log_message "========*******   END INSTALLATION OF BIGGER ALBUM ART   ********========"
 log_message " "
+}
 
+#-----------------------------------------------------------------------------------------------
+
+remove_blankAlbumArtFrame()
+{
 # remove blank album art frame
 show_message "REMOVE BLANK ALBUM ART FRAME ..."
 log_message "=======******** INSTALL REMOVE BLANK ALBUM ART FRAME ... ********========"
@@ -1390,11 +1441,17 @@ cp -a "${MYDIR}/config/blank-album-art-frame/jci/gui/common/controls/InCall2/ima
 cp -a "${MYDIR}/config/blank-album-art-frame/jci/gui/common/controls/NowPlaying4/images/NowPlayingImageFrame.png" /jci/gui/common/controls/NowPlaying4/images
 cp -a "${MYDIR}/config/blank-album-art-frame/jci/gui/common/images/no_artwork_icon.png" /jci/gui/common/images
 cp -a "${MYDIR}/config/blank-album-art-frame/jci/gui/common/images/radio_icon.png" /jci/gui/common/images
+cp -a "${MYDIR}/config/blank-album-art-frame/jci/gui/common/images/controls_bg.png" /jci/gui/common/images
 log_message "===                     Replaced Blank Album Art                      ==="
 
 log_message "======*******  END INSTALLATION OF REMOVE BLANK ALBUM ART  *******======="
 log_message " "
+}
 
+#--------------------------------------------------------------------------------------------
+
+install_changeBackgrpounds()
+{
 # change background image
 show_message "CHANGING BACKGROUND IMAGE ..."
 log_message "=======*********  INSTALL CHANGE BACKGROUND IMAGE ...   *********========"
@@ -1434,6 +1491,35 @@ fi
 
 log_message "====********* END INSTALLATION OFF SCREEN BACKGROUND IMAGE **********===="
 log_message " "
+}
+
+#------------------------- Install functions - comment/uncomment to ignore/activate -----------------------------------------
+
+uninstall_backgroundRotator
+
+install_custTheme
+
+install_statusTweaks
+
+install_menuTweaks
+
+install_reverseTweaks
+
+install_menuLoop
+
+install_noMoreDisclaimer
+
+install_sourceList
+
+install_removeBackgrounds
+
+install_biggerArt
+
+remove_blankAlbumArtFrame
+
+install_changeBackgrpounds
+
+#------------------------------------------------------------------------------------------------------------
 
 show_message "========== END OF TWEAKS INSTALLATION =========="
 [ -s /etc/profile ] || restore_org /etc/profile
