@@ -45,7 +45,7 @@ APPS2RESOURCES=0
 COLORTHEME=SmoothAzure
 
 NOALBM=0
-FULLTITLES=0
+FULLTITLES=1
 
 NO_BTN_BG=1
 NO_NP_BG=1
@@ -889,11 +889,14 @@ remove_aio_css /jci/gui/common/controls/Sbn/css/SbnCtrl.css
 .StatusBarCtrlClock {
 	color: ${STATUS_BAR_CLOCK};
 	font-style: italic;
+    width: 112px !important;
+    right: 4px !important;
+    text-align: left !important;
 }
 .StatusBarCtrlIconContainer {
   height: 21px !important;
-  margin-right: 118px;
-  margin-left: 540px;
+  margin-right: 128px;
+  margin-left: 530px;
 }
 .StatusBarCtrlIcon {
   margin: 0 0 0 8px !important;
